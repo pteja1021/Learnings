@@ -1,0 +1,64 @@
+1. let a='5';
+a==5 will return true but a===5 will not return true since a and '5' are different datatypes.
+
+2. let x=5;
+if ((x>=10 && x%2===0) || (x<10 && x%2!==0)){
+	console.log(true);
+} 
+
+3. let output='';
+x%2===0?output='even':output='odd';
+
+4. let x=5;
+if (x===1){
+	console.log('Sunday');
+}
+else if (x===2){
+	console.log('Monday');
+}
+else if (x===3){
+	console.log('Tuesday');
+}
+else if (x===4){
+	console.log('Wednesday');
+}
+else if (x===5){
+	console.log('Thursday');
+}
+else if (x===6){
+	console.log('Friday');
+}
+else if (x===7){
+	console.log('Saturday');
+}
+else{
+	console.log('invalid input');
+}
+
+5 let x=5;
+switch (x){
+	case 1:
+	console.log('Sunday');
+	break;
+	case 2:
+	console.log('Monday');
+	break;
+	case 3:
+	console.log('Tuesday');
+	break;
+	case 4:
+	console.log('Wednesday');
+	break;
+	case 5:
+	console.log('Thursday');
+	break;
+	case 6:
+	console.log('Friday');
+	break;
+	case 7:
+	console.log('Saturday');
+	break;
+	default:
+	console.log('Invalid input');
+	break;
+}

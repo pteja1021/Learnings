@@ -1,0 +1,25 @@
+1. Function declaration
+the identifier is given after keyword,
+it is hoisted
+
+Function EXPRESSION
+identifier is declared as a variable
+it is not hoisted
+
+2. const <identifier>= (param1,param2..)=>{
+    <body>
+}
+if there is only one parameter, no need of parenthesis
+if there is only one line of body, no need of curly braces and 
+that line is returned by default. Hence no return keyword is required
+
+3. function adder(number1,number2){
+    return number1+number2;
+}
+
+4. const multiplier=function(number1,number2){
+    return number1*number2;
+}
+
+5. const subtractor = (number1, number2) => number1-number2;
+
