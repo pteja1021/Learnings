@@ -1,0 +1,21 @@
+For loop :
+
+Syntax:
+for (let i=<initial value>;condition;increment/decrement){
+    <body>
+}
+
+While loop :
+
+Syntax:
+while (condition){
+    <body>
+}
+
+Do while loop:
+Executes atleast once
+
+do{
+    <body>
+}
+while(condition)

@@ -1,0 +1,6 @@
+1. a=[1,2,3,4,5]
+for(let i=a.length;i>=0;i--){
+    console.log(a[i]);
+}
+
+2.
