@@ -23,3 +23,7 @@ that line is returned by default. Hence no return keyword is required
 
 5. const subtractor = (number1, number2) => number1-number2;
 
+6. const reverser=(function(string1){
+	return string1.split('').reverse().join('');
+})('hey');
+console.log(reverser);
