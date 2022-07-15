@@ -1,0 +1,8 @@
+You may nest a function within another function. 
+The nested (inner) function is private to its containing (outer) function.
+
+It also forms a closure. A closure is an expression (most commonly, a function) that can have free variables 
+together with an environment that binds those variables (that "closes" the expression).
+
+Since a nested function is a closure, this means that a nested function can "inherit" the 
+arguments and variables of its containing function. In other words, the inner function contains the scope of the outer function.

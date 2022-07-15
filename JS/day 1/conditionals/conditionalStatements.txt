@@ -1,0 +1,29 @@
+syntax: if, else if, else
+
+and -- &&
+or -- ||
+not -- !
+if (<condition>) {
+
+	<block of code>
+
+}
+
+ternary operator:
+<condition>?<true block>:<false block>
+
+switch case:
+switch (item){
+	case <value1>:
+		block of code;
+		break;
+	case <value2>:
+		block of code;
+		break;
+	...
+	default:
+		block of code;
+		break;	
+}
+
+

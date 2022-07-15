@@ -1,0 +1,17 @@
+List of Falsy values
+0
+empty string like '' or ""
+null
+undefined
+NaN -  Not a number
+
+everything else is truthy
+
+short circuit evaluation
+let a='b'||'c'
+
+a wil take the value 'b'
+
+let a=''||"b"
+
+a will take the value 'b'

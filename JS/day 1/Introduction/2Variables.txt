@@ -1,0 +1,16 @@
+A variable is basically a container for a value
+declare variables using 'var' keyword. camel casing is the standard.
+Rules:
+	1. cannot start with numbers
+	2. case-sensitive
+	3. cannot be the keywords
+ES6 introduced the 'let' keyword. Both let and var keywords can be used to delcare variables. One need not assign a value at the beginnning itslef. if such initialisation is not given then the variable assumes a value of undefined.
+ES6 also introduced the 'const' keyword. These variables cant be reassigned.Trying to do so will result in TypeError.
+Mathematic assignment operators : +=. -=, *=, /=, ++, --
+String Interpolation : these are called template literals
+use backticks and to use variables inside a string, use ${<variable>}
+the ${} is called placeholder
+
+typeof operator
+usage : typeof <variable>
+

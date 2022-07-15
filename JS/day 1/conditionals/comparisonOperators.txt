@@ -1,0 +1,6 @@
+<
+>
+<=
+>=
+=== : is equal to
+!== : not equal to

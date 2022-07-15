@@ -1,0 +1,33 @@
+function <identifier>(p1=default1,p2,p3..){
+    <function body>
+}
+
+the function keyword, identifier, body all put together
+form the function declaration.
+
+hoisting - function can be called before even it is declared.
+AVOID HOISTING.
+
+FUNCTION EXPRESSION
+const <identifier>=function(p1,p2){
+    ....
+    return ...
+}
+A function with no name is called an ANONYMOUS FUNCTION.
+Hence RHS of function EXPRESSION is an anonymous function.
+To invoke an EXPRESSION:
+<identifier>(arg1,arg2)
+
+function EXPRESSIONs cannot be hoisted.
+
+ARROW FUNCTION
+const <identifier>=(p1,p2..)=>{
+    ...
+    return ...
+}
+for single parameter, we dont need brackets in arrow function declaration.
+however for zero or >1 , we need them.
+arrow functions are not hoisted
+
+Also, a function with body of single line does not need curly braces.
+that single line will directly be returned, hence no return keyword is needed.

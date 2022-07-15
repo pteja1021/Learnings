@@ -1,0 +1,32 @@
+INTRODUCTION
+
+1. console is an object that is collection of data and actions
+2. we can use console.log() to log msgs onto the console.
+3. // for single line comments
+4. multiline comment : /* */
+5. Datatypes - total 7 kinds
+	a. Number - any number- ints and floats
+	b. String - '' or ""
+	c. Boolean - true or false
+	d. null- absence of a value
+	e. undefined - given value doesn't exist
+	f. Symbol - unique identifiers
+	g. Object - Collections of related data
+   a to f are primitive.
+6. Arithmetic operators: +,-,*,/,%
+7. concatenation of strings : use +
+8. for every string, the properties applicable are
+	<string>.length
+9. methods on strings
+	<string>.toUpperCase() -- changes the string to uppercase
+	<string>.startsWith(<letter>) -- returns boolean
+	<string>.trim() -- to remove any leading and trailing spaces
+	<string>.trimStart() & <string>.trimEnd()
+10. Math object
+	Math.random() -- returns any number bw 0 and 1
+	Math.floor() -- returns the float of the number
+	Math.ceil()
+	Math.isInteger()
+11. Number object
+	Number.isInteger(<number>)
+
