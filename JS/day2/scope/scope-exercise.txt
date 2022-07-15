@@ -1,0 +1,9 @@
+Closures :
+http://nicholasjohnson.com/javascript/javascript-for-programmers/exercises/closure/
+
+1. 12 -- global namespace's a is printed out
+2. 12 -- local scope's a is printed out.
+3. 12 -- local scope's a is printed out.
+4. 20 -- global scope's a is printed out.
+5. 12 -- global a is overwritten by iife a.
+6. 15 -- local a is printed

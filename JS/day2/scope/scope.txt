@@ -1,0 +1,47 @@
+let city='New York City';
+const logCitySkyline=()=>{
+  let skyscraper='Empire State Building';
+  return 'The stars over the '+skyscraper+' in '+city;
+}
+console.log(logCitySkyline());
+
+guess the output:
+The stars over the Empire State Building in New York City
+
+the function can access the city variable that is in global scope.
+By the time you call the function, if the variable is defined in glboal scope,
+then the function will be able to access it.
+
+hence the following code also returns the same output.
+
+const logCitySkyline=()=>{
+  let skyscraper='Empire State Building';
+  return 'The stars over the '+skyscraper+' in '+city;
+}
+let city='New York City';
+console.log(logCitySkyline());
+
+scopes-- two kinds : global and block scope
+
+if local and global variables are clashing in the name,
+the local variables are given more precedence than ones in global.
+
+local variables only exist within function. calling the function
+wont define the variables inside function in global scope.
+
+const logVisibleLightWaves = () => {
+  let lightWaves = 'Moonlight';
+	let region = 'The Arctic';
+  if (region==='The Arctic'){
+    let lightWaves='Northern Lights';
+    console.log(lightWaves) //prints Northern Lights
+  }
+  console.log(lightWaves); // prints Moonlight
+};
+
+logVisibleLightWaves();
+
+if you use 'let <sameVarName>', then a new variable inside block scope
+is created.
+if you dont use let, the block scope will rewrite the value of 
+its parent scope's variables
