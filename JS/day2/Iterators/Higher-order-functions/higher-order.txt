@@ -1,0 +1,35 @@
+Functions as Data:
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+
+const isTwoPlusTwo=checkThatTwoPlusTwoEqualsFourAMillionTimes;
+isTwoPlusTwo()
+console.log(isTwoPlusTwo.name) //returns the original function name
+
+A higher-order function is a function that either accepts functions as parameters, 
+returns a function, or both! 
+We call functions that get passed in as parameters callback functions.
+With callback functions, we pass in the function itself by typing the function name without the parentheses.
+JavaScript functions are first-class objects, so they have properties and methods like any other object.
+
+Example: 
+
+const addTwo = num => {
+  return num + 2;
+}
+
+const checkConsistentOutput = (func, val) => {
+  let checkA=val+2;
+  let checkB=func(val);
+  if (checkA===checkB)
+    return checkB;
+  else
+    return 'inconsistent results';
+}
+
+console.log(checkConsistentOutput(addTwo,2));

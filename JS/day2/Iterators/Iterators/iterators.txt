@@ -1,0 +1,60 @@
+--> .forEach()
+It will execute the function for-each element of array
+
+syntax:
+<array>.forEach(<callback function with one parameter as array-item>);
+
+--> .map
+When .map() is called on an array, it takes an argument of a callback function and returns a NEW array!
+
+const numbers = [1, 2, 3, 4, 5];  
+const bigNumbers = numbers.map(number => {
+  return number * 10;
+});
+//bigNumbers will now be [10,20,30,40,50]
+
+--> filter -- boolean callback
+.filter() returns an array of elements after filtering out certain elements from the original array. Returns a NEW array
+The callback function for the .filter() method should return true or false depending on the element that is passed to it. 
+
+Example:
+const words = ['chair', 'music', 'pillow', 'brick', 'pen', 'door']; 
+const shortWords = words.filter(word => {
+  return word.length < 6;
+});
+
+
+--> findIndex -- boolean callback
+similar to filter, returns the index of first element which evaluates to true for given condition
+const jumbledNums = [123, 25, 78, 5, 9]; 
+const lessThanTen = jumbledNums.findIndex(num => {
+  return num < 10;
+});
+
+--> reduce
+the reduce is used to reduce the array into a single value.
+takes TWO arguments. First time, two of the array values are passed as args. from next on, the first 
+argument will be the accumulated value of previous iteration and second arg will be the current iteration's value
+
+ex: 
+const numbers = [1, 2, 4, 10];
+ 
+const summedNums = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+})
+ 
+console.log(summedNums) // Output: 17
+
+first time-1,2 --- 3 (this 3 is passed as first arg the next time)
+second time-3,4 --- 7 ( 3 is accumulated, 4 is the current iteration)
+third time-7,10 --- 17 (7 is accumulated, 10 is current iteration)
+
+in the first time, we can also set a default value for accumulator to start with
+
+const summedNums = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue
+}, 100) // here 100 will be first accumulator value.
+
+--> .some , .every -- boolean callback
+returns if any of the array value satisfies a condition
+words.some(word=>word.length<6)
