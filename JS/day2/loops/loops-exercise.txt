@@ -3,4 +3,7 @@ for(let i=a.length;i>=0;i--){
     console.log(a[i]);
 }
 
-2.
+2. for..of is used to iterate over values of an object
+for .. in  is used to iterate over keys of an object
+
+for an array- default keys will be its indices
