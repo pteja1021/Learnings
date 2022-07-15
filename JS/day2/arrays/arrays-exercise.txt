@@ -1,0 +1,48 @@
+1. Arrays are passed by reference
+const concept = ['arrays', 'can', 'be', 'mutated'];
+
+function changeArr(arr){
+  arr[3] = 'MUTATED';
+}
+
+changeArr(concept); // [ 'arrays', 'can', 'be', 'MUTATED' ]
+console.log(concept)
+const removeElement =newArr => {
+  newArr.pop();
+}
+removeElement(concept);
+console.log(concept) // [ 'arrays', 'can', 'be' ]
+
+2. a=[1,2,3]
+b=a.slice(0)
+console.log(b) // slice returns a whole new array
+
+3. 
+--> Shift
+    <array>.shift()
+    This deletes the first element and returns it. shifts all elements to one index lower. Mutates the original array.
+    ex: a=[1,2,3]
+        a.shift()
+        console.log(a)//[2,3]
+--> Unshift
+    <array>.unshift('Lemon')
+    This adds the argument to first of array and shifts all elements to one index higher.Mutates the original array and returns the length of new array
+    ex: a=[1,2,3]
+        a.unshift(4)
+        console.log(a) // [4,1,2,3]
+--> Splice
+    <array>.splice(<index to add at>,<no. of elements to remove>,item1,item2,....)
+    This will add item1,item2,.. at the <index to add at> and remove the no. of elements mentioned
+    ex: a=[1,2,3]
+        a.splice(1,0,4,5)
+        console.log(a) // [1,4,5,2,3]
+--> slice
+    <array>.slice(start,end)
+    returns NEW array sliced from original array from start to end-1 index
+    you can omit the second argument-will slice all way to end
+--> Popping
+    <array>.pop()
+    This deletes the last element and returns it. Mutates the original array.
+    ex: a=[1,2,3]
+        a.pop()
+        console.log(a)// [1,2]

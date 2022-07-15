@@ -1,0 +1,63 @@
+Creating:
+
+let a=[1,'hey',true]
+Arrays can store any datatype-even other arrays as well
+
+Reading:
+a[0] -- returns first element, arrays are zero indexed
+accessing elements beyond the length-1 index will return 'undefined'.
+
+Updating:
+
+To change existing items:
+a[2]=3;
+updating an element that is beyond index of length will insert a new element in that array at that index 
+and for the rest of elements in between, it will insert undefined.
+
+
+ex: a[5]=6
+this will make 'a' array as [1,'hey',true, , ,6]. At 3,4 indices -- undefined is inserted.
+
+Deleting:
+delete a[0] : deletes 0th element but leaves an undefined. array length remains same as before.
+
+Methods and Properties of arrays:
+--> For length:
+    <array>.length
+--> Adding new items
+    <array>.push(item1,item2,..)
+    This mutates the original array. returns the new length
+--> Popping
+    <array>.pop()
+    This deletes the last element and returns it. Mutates the original array.
+--> Joining
+    <array>.join('<some limiter>')
+--> Shift
+    <array>.shift()
+    This deletes the first element and returns it. shifts all elements to one index lower. Mutates the original array.
+--> Unshift
+    <array>.unshift('Lemon')
+    This adds the argument to first of array and shifts all elements to one index higher.Mutates the original array and returns the length of new array
+--> Concat
+    <array>.concat(<another array>)
+    This adds another array elements to original array. Does NOT mutate the original array. returns new array containing all the elements
+--> Splice
+    <array>.splice(<index to add at>,<no. of elements to remove>,item1,item2,....)
+    This will add item1,item2,.. at the <index to add at> and remove the no. of elements mentioned
+--> slice
+    <array>.slice(start,end)
+    returns NEW array sliced from original array from start to end-1 index
+    you can omit the second argument-will slice all way to end
+
+Few Important Notes :
+
+--> elements in an array declared with const remain mutable
+    which means we can change the contents of a const array but
+    cannot reassign array as we complete the steps
+
+    const utensils = ['Fork', 'Knife', 'Chopsticks', 'Spork'];
+    utensils[3]='Spoon';
+    console.log(utensils); // [ 'Fork', 'Knife', 'Chopsticks', 'Spoon' ]
+
+
+--> Arrays are passed by reference. Hence any change to array inside a function will keep the mutation alive outside of the function as well.
