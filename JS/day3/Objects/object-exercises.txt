@@ -1,0 +1,31 @@
+1. const property_printer=(obj)=>{
+    for (let prop in obj){
+        console.log(prop);
+    }
+}
+
+2. x={'a':1,'b':2}
+delete x.a 
+console.log(x)
+
+3. Yes, it will change since objects are passed by reference
+
+4. 
+x={'a':1}
+const y=Object.assign({},x)
+y.a=2;
+console.log(x,y)
+
+5.
+const areObjectsEqual=function(obj1,obj2){
+    for (let prop1 in obj1){
+        if (obj1[prop1]!==obj2[prop1])
+            return false
+    }
+    for (let prop2 in obj2){
+        if (obj1[prop2]!==obj2[prop2])
+            return false
+    }
+    return true
+}
+console.log(areObjectsEqual({a:1},{b:2}))

@@ -1,0 +1,34 @@
+Factory functions
+
+To reuse the template of an object
+Example:
+const monsterFactory = (name, age, energySource, catchPhrase) => {
+  return { 
+    name: name,
+    age: age, 
+    energySource: energySource,
+    scare() {
+      console.log(catchPhrase);
+    } 
+  }
+};
+
+const ghost = monsterFactory('Ghouly', 251, 'ectoplasm', 'BOO!');
+ghost.scare(); // 'BOO!'
+
+Property Value Shorthand:
+const monsterFactory = (name, age) => {
+  return { 
+    name,
+    age 
+  }
+};
+
+Works same as above code. We can access name and age as properties now.
+
+Destructured Assignment:
+instead of
+const <property>=<object>.<property>
+
+we can use
+const {property}=<object>

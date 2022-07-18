@@ -61,3 +61,4 @@ Few Important Notes :
 
 
 --> Arrays are passed by reference. Hence any change to array inside a function will keep the mutation alive outside of the function as well.
+However reassignment wont work

@@ -1,0 +1,63 @@
+Declaration:
+let a={}
+We use {} to designate an object literal
+
+The data in object is organised as a key value pair
+
+Example : 
+
+let fasterShip = {
+  'Fuel Type': 'Turbo Fuel',
+  color: 'silver'
+}
+
+Accessing properties:
+
+1. <object identifier>.<property>
+ex: fasterShip.color -- no quotations unless it has more than one word
+
+if we try to access a property that does not exist, it returns undefined.
+
+2. <object identifier>[property passed as a string]
+ex: fasterShip['color']
+
+Updating values or objects:
+
+<identifier>.<prop name>=value
+<identifier>[prop name as a string]=value
+
+If prop already exists on the object-it will update
+else it will create a new property
+
+for const objects, reassignment is not possible , however it will allow updates
+
+Deleting:
+
+delete <object name>.property
+delete <object identifier>[property as a string]
+
+Defining methods on objects:
+When data is stored as a function on an object, we call that a METHOD.
+
+example :
+const alienShip = {
+  invade: function () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+new es6 syntax:
+const alienShip = {
+  invade () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+//calling it:
+alienShip.invade()
+
+Traversing the objects:
+use 
+
+IMPORTANT NOTES:
+--> Objects are passed by reference, However reassignment wont work inside the function. though object is reassigned, our object remains same.

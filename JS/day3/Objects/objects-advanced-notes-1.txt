@@ -1,0 +1,62 @@
+INSIDE AN OBJECT, ONE PROPERTY DOESN'T AUTOMATICALLY HAVE ACCESS TO OTHER PROPERTIES.
+USE 'this' KEYWORD.
+
+example:
+const goat = {
+  dietType: 'herbivore',
+  makeSound() {
+    console.log('baaa');
+  },
+  diet() {
+    console.log(dietType);
+  }
+};
+goat.diet(); 
+// Output will be "ReferenceError: dietType is not defined"
+
+const goat = {
+  dietType: 'herbivore',
+  makeSound() {
+    console.log('baaa');
+  },
+  diet() {
+    console.log(this.dietType);
+  }
+};
+ 
+goat.diet(); 
+// Output: herbivore
+
+The this keyword references the calling object which provides access to calling object's properties - This is NOT APPLICABLE for ARROW FUNCTIONS.
+For arrow functions, the 'this' keyword refers to the parent
+
+Javascript doesnt have inbuilt privacy for objects. Hence by convention, developers use _ before a variable to declare that particular variable's 
+value shouldn't be changed.
+
+GETTERS AND SETTERS:
+Getters-property that gets and return the internal properties of an object.
+syntax:
+obj={
+    _prop1:val1;
+    get prop1(){
+        return 'dont access prop1';
+    }
+}
+//to call it
+obj.prop1
+
+Setters-property that can be used to set an internal property
+ex:
+const person = {
+  _age: 37,
+  set age(newAge){
+    if (typeof newAge === 'number'){
+      this._age = newAge;
+    } else {
+      console.log('You must assign a number to age');
+    }
+  }
+};
+//usage
+person.age=50; //changes the property
+person.age='40' // does not change
