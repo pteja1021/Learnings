@@ -1,0 +1,62 @@
+All code inside a class gets executed in strict mode.
+
+declaration:
+
+class Person {
+    constructor(param1){
+        this.param1=param1;
+    }
+    getName(){
+        return this.param1;
+    }
+    get name(){ //getters
+        return this._name
+    }
+    set name(newName){  //setters
+        this._name=newName
+    }
+}
+
+let person1=new Person('teja');
+console.log(person1 instanceof Person) // instanceof
+
+//using getters and setters
+person1.name ---> getters
+person1.name='random' --->setters
+
+CLASS EXPRESSION
+
+let person=class{
+    constructor(name){
+        this.name=name
+    }
+    get name(){
+        return this.name
+    }
+}
+
+Creating an object out of class is same as previous way
+JS classes are first class citizens meaning they can be passed into a function, returned from a function, assigned to a variable.
+
+Class expressions can be used to create a singleton by calling the class constructor immediately.
+let app = new class {
+    constructor(name) {
+        this.name = name;
+    }
+    start() {
+        console.log(`Starting the ${this.name}...`);
+    }
+}('Awesome App'); //this calls the constructor immediately
+
+app.start(); // Starting the Awesome App...
+
+ES6 allows you to use an expression in brackets []. It’ll then use the result of the expression as the property name of an object.
+Example
+
+let propName = 'c';
+const rank = {
+  a: 1,
+  b: 2,
+  [propName]: 3,
+};
+console.log(rank.c); // 3

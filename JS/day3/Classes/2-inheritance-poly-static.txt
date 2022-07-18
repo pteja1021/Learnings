@@ -1,0 +1,49 @@
+keywords : extends & super
+
+class Animal {
+    constructor(legs) {
+        this.legs = legs;
+    }
+    walk() {
+        console.log('walking on ' + this.legs + ' legs');
+    }
+}
+class Bird extends Animal { //Bird is inheriting Animal
+    constructor(legs) {
+        super(legs);
+    }
+    fly() {
+        console.log('flying');
+    }
+}
+
+let bird = new Bird(2);
+
+bird.walk(); //is available from Animal class
+bird.fly();
+
+Javascipt requires the child class to call super() if it has a constructor.
+child class can override parent class's methods by defining methods with same name.
+to call upon the parent class's method, use super.method(...)
+
+besides the properties and methods, child class also inherits all static peoperties and methods of parent class. 
+
+static : these are bound to class rather than the instances of that class
+
+To define static methods..
+static <func name>(params){
+    ...
+}
+to invoke outside constructor, use <Class Name>.<static func name>() 
+to invoke inside constructor , use this.constructor.staticMethodName() or <class name>.<static func name>
+
+Calling the static method from the instance of the class will result in an error.
+
+To define static properties..
+class Item {
+	static count = 0;
+}
+To access : Item.count or
+Use the this.constructor.staticPropertyName or className.staticPropertyName to access the static property in a constructor.
+
+instanceof operator returns true if its called even with a parent class

@@ -1,0 +1,37 @@
+ES2022 allows to define private field of a class using # sign 
+the private fields can be accessed only inside the class and invisible to outside of class
+
+example:
+class Circle {
+  #radius = 0; // # is the private field 
+  constructor(radius) {
+    this.radius = radius;
+  }
+  get area() {
+    return Math.PI * Math.pow(this.radius, 2);
+  }
+  set radius(value) {
+    if (typeof value === 'number' && value > 0) {
+      this.#radius = value; //the private fields can be accessed by the # sign
+    } else {
+      throw 'The radius must be a positive number';
+    }
+  }
+  get radius() {
+    return this.#radius;
+  }
+}
+
+private fields are not accessible even in child classes
+
+To check if an object has a private field inside a class , use the 'in' operator
+
+fieldName in objectName
+
+To create private methods.
+class MyClass {
+  #privateMethod() {
+    //...
+  }
+}
+Private methods can be called inside the class but can neither be called outside the class nor in subclasses.
