@@ -1,0 +1,70 @@
+Refer https://www.youtube.com/channel/UCnT3Xgtw4YJN9u4nCzb2ZXQ/search?query=abhilash
+
+What are Promises? : these are special objects built into js that get returned immediately when we make a call to web browser API (fetch)
+Instead of setTimeOut , if we use a promise , it will return an object instantly. We can store this object in memory.
+
+Promises act as a placeholder for the data that we get back from browser API
+Once this placeholder value is filled, it automatically triggers the methods deferred
+
+fetch(url)
+
+fetch does 2 things.
+1.kicks of xhr request of web browser
+2.immediately returns an object with
+    a. 'value' as property
+    b. an array with name as onFulfillment which stores functions that need to be deferred.
+
+fetch is a promise object, we can use .then() on it which pushes the function in parameter to the onFulfillment array of Promise object created. 
+
+EXECUTION OF PROMISES:
+
+Look at example below: 
+
+function display(data) {console.log(data)}
+function printHello() {console.log(“Hello”);}
+function blockFor300ms () {
+    //blocks js thread for 300ms
+    console.log("I am unblocked!")
+}
+setTimeout (printHello, 0);
+
+//Assume that we get response in 200ms
+const futureData = fetch('https://ak.com/ak/articles')
+futureData.then (display)
+
+blockFor300ms ()
+
+console.log("Me first!");
+
+Output:
+I am unblocked! (GEC)
+Me first! (GEC)
+Data from fetch API  (Micro task queue)
+Hello (callback Queue)
+
+// Behind the scenes:
+
+setTimeOut
+After Oms, pushes printHello function call to callback Queue
+
+XHR request
+After getting data, updates value property of Promise with data
+
+JS Promise → once value gets updated
+Pushes display function call to to Micro task Queue (Job Queue)
+
+Event looping → Inside JS Engine
+
+If micro-task Queue contains code, that code will enter Call Stack prior to Callback Queue functions.
+
+If the Callback Queue contains code, that code can enter the Call Stack only when the Call Stack itself is
+empty, micro-task queue is empty and the global execution context has run all of its code.
+
+Promise can handle errors by
+.catch(errorHandlerFunction)
+.then(successHandler, errorHandler)
+
+Microtask Queue or Job Queue takes priority over callback queue
+Unless Microtask Queue is empty, JS thread won't pick up methods in callback queue
+
+Promises makes debugging hard.

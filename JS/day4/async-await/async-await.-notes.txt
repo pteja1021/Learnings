@@ -1,0 +1,18 @@
+await --> to wait for a promise
+let a = await promise_name()
+await can only be used inside async functions
+
+async --> to process that function asynchronously via the event loop
+async functions implicitly return a promise even if you just give 
+
+async function sayhi(){
+    return 'hi'
+}
+
+we can again call .then or .catch on it
+
+example;
+
+sayhi().then(console.log)
+
+if awaited promise throws an error or rejected state, it can be caught by try{} and catch(){} blocks

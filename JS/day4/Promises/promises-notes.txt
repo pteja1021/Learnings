@@ -1,0 +1,49 @@
+Promise is an object that encapsulates the result of an asynchronous operation
+
+Promise has a status property:
+1. Pending
+2. Fulfilled with a 'value' 
+3. Rejected for a 'reason'
+
+To create a promise object, you use the Promise() constructor:
+
+const promise = new Promise((resolve, reject) => {
+  // contain an operation
+  // ...
+
+  // return the state
+  if (success) {
+    resolve(value);
+  } else {
+    reject(error);
+  }
+});
+
+The promise constructor accepts a callback function that typically performs an asynchronous operation. This function is often referred to as an executor.
+In turn, the executor accepts two callback functions with the name resolve and reject.
+If the asynchronous operation completes successfully, the executor will call the resolve() function to change the state of the promise from pending to fulfilled with a value.
+In case of an error, the executor will call the reject() function to change the state of the promise from pending to rejected with the error reason.
+
+Once a new Promise object is created, its state is pending. If a promise reaches fulfilled or rejected state, it is 'RESOLVED'.
+On calling the resolve() from callback's argument, we change the state of promise from pending to Fulfilled
+On calling the reject() from callback's argument, we change the state of promise from pending to Rejected 
+
+We can send a message from resolve()/reject() by using the parameter in resolve. resolve('message')/reject('message') is the syntax.
+this parameter 'message' can then be implicitly accesses by the callback functions included in .then or .catch as parameters.
+this 'message' can also be an object or array , whatever datatype.
+
+CONSUMING A PROMISE:
+
+1. .then(<success callback>) method
+This is called on a promise object to call a success callback i.e when resolve() is called inside that Promise i.e pending to Fulfilled state change
+<success callback> can access the message passed by resolve(<value>) i.e the value
+
+2. .catch(<failure callback>)
+This is called on a promise object to call a failure callback i.e when reject() is called inside that Promise i.e pending to Rejected state change
+<failure callback> can access the message passed by reject(<error>) i.e the error
+ 
+Refer promises_syntax.png 
+
+Promise chaining: https://www.javascripttutorial.net/es6/promise-chaining/
+When you return a value in the then() method, the then() method returns a new Promise that immediately resolves to the return value.
+

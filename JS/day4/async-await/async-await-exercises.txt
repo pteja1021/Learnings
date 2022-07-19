@@ -1,0 +1,12 @@
+function getProcessesData(url){
+    return downloadData(url).catch(e=>return downloadFallbackData(url)).then(v=>return processDataInworker(v)
+
+async function getProcessesData(url){
+    try{
+        let temp=await downloadData(url);
+        await processDataInworker(temp);
+    }
+    catch(e){
+        await downloadFallbackData(url)
+    }   
+}
