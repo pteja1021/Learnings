@@ -7,7 +7,7 @@
       function Greeting() {
 
         const [name, setName] = React.useState(window.localStorage.getItem(name)||' ');
-        //whenever name is mounted, updated , local storage is updated
+        //whenever Greeting is mounted, updated , local storage is updated
         React.useEffect(()=>{
             window.localStorage.setItem('name',name)
         })
