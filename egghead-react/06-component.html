@@ -1,0 +1,24 @@
+
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+        //this is a component
+      const Message=(props)=>{ //destructured props using curly braces
+        return <div className="message">{props.children}</div>
+      }
+      //Always call custom components with first letter in Caps
+      //Content in between will be passed as 'children' in props
+      //or else
+      const element = (
+        <div className="container">
+          <Message children='Hello World'/>
+          <Message>Goodbye World</Message> 
+        </div>
+      )
+  
+      ReactDOM.render(element, document.getElementById('root'))
+    </script>
+  </body>
