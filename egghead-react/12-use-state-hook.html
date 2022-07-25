@@ -6,6 +6,7 @@
     <script type="text/babel">
       function Greeting() {
         const [name, setName] = React.useState('') //useState hook
+        //handleChange updates name variable from input usinf setName 
         const handleChange = event => setName(event.target.value) 
         //for tag in label in html is htmlFor in JSX
         return (

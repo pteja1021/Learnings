@@ -10,7 +10,7 @@
   
       function App() {
         function handleClick() {
-          setState({eventCount: state.eventCount + 1}) //setState is a defined function that updates the state and calls on renderApp() everytime
+          setState({eventCount: state.eventCount + 1}) //setState is a defined function in this script that updates the state and calls on renderApp() everytime
         }
   
         function handleChange(event) {
@@ -30,7 +30,7 @@
           </div>
         )
       }
-  
+      //this setState assigns the new state but calls who render again, IT IS INEFFICIENT
       function setState(newState) {
         Object.assign(state, newState)
         renderApp()
