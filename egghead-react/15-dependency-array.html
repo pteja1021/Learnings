@@ -1,0 +1,46 @@
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+      function Greeting() {
+
+        const [name, setName] = React.useState(()=>{
+            return window.localStorage.getItem('name')||' ';
+        })
+
+        React.useEffect(()=>{
+            console.log('Greeting component useEffect')
+            window.localStorage.setItem('name',name)
+        },[name]) //dependencies help to narrow down the number of times its called,Apart from mounting
+        // only when 'name' variable is updated (i.e using setName) useEffect is called, optimises the performance.
+        
+        const handleChange = event => {
+            setName(event.target.value); 
+        }
+        
+        return (
+          <div>
+            <form>
+              <label htmlFor="name">Name: </label> 
+              <input value={name} onChange={handleChange} id="name" /> 
+            </form>
+            {name ? <strong>Hello {name}</strong> : 'Type your name'}
+          </div>
+        )
+      }
+      
+      function App(){
+        const [count,setCount]=React.useState(0);
+        return (
+            <>
+            <button onClick={()=>setCount(count+1)}>{count}</button>
+            <Greeting/>
+            </>   
+        )
+      }
+
+      ReactDOM.render(<App/>, document.getElementById('root'))
+    </script>
+  </body>

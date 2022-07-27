@@ -1,0 +1,42 @@
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+      function Greeting() {
+
+        // const [name, setName] = React.useState(window.localStorage.getItem('name')||' ');
+
+        //we can pass an arrow function that returns the initial value, 
+        //by doing so we are saving the expense of re-initialization everytime page reloads
+        //by doing so, the function is called only when the value is absolutely necessary
+
+        const [name, setName] = React.useState(()=>{
+            console.log('called useState'); //this will help see how many times the function is called
+            return window.localStorage.getItem('name')||' ';
+        })
+        console.log('after useState')
+
+        React.useEffect(()=>{
+            window.localStorage.setItem('name',name)
+        })
+        
+        const handleChange = event => {
+            setName(event.target.value); 
+        }
+        
+        return (
+          <div>
+            <form>
+              <label htmlFor="name">Name: </label> 
+              <input value={name} onChange={handleChange} id="name" /> 
+            </form>
+            {name ? <strong>Hello {name}</strong> : 'Type your name'}
+          </div>
+        )
+      }
+      //rendering the element
+      ReactDOM.render(<Greeting />, document.getElementById('root'))
+    </script>
+  </body>

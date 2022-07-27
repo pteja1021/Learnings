@@ -1,0 +1,31 @@
+<!--
+    getting the value from input.
+    1. use event.target.elements.<id>.value in form's onsubmit function
+    2. or just use a ref and ref.current.value
+-->
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+        function handleSubmit(event){
+            event.preventDefault();
+            const username=event.target.usernameInput.value;
+            console.log(username);
+        }
+        function UsernameForm(){
+            return (
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor='usernameInput'>Username: </label>
+                        <input id='usernameInput' type='text'></input>
+                    </div>
+                    <button type='submit'>submit</button>
+                </form>
+            )
+        }
+        ReactDOM.render(<UsernameForm/>,document.getElementById('root'));
+    </script>
+</body>
+

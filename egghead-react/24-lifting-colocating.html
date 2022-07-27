@@ -1,0 +1,30 @@
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script type="text/babel">
+        function Greeting({name,animal}){
+            console.log(name)
+            return (<div>Hey {name}! your favorite animal is {animal}</div>)
+        }
+        function Animal({name,animal}){
+            return (<div>Hey {animal}! your owner is {name}</div>)
+        }
+        function Parent(){
+
+            //making state common to both Animal, Greeting Components - makes sibling access the same values
+
+            const [name,setName]=React.useState('teja')
+            const [animal,setAnimal]=React.useState('Charlie')
+
+            return (
+                <>
+                <Animal name={name} animal={animal}/>
+                <Greeting name={name} animal={animal}/>
+                </>
+            )
+        }
+        ReactDOM.render(<Parent />,document.getElementById('root'))
+    </script>
+</body>
