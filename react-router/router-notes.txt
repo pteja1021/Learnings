@@ -1,0 +1,98 @@
+1. installation:
+npm install react-router-dom@6
+
+2. importing:
+import {BrowserRouter} from 'react-router-dom'
+
+3. Encompass your component - App inside BrowserRouter
+This App is the final component that is rendered on the Browser.
+
+<BrowserRouter>
+    <App />
+</BrowserRouter>
+
+4. inside the App component, write the routes using Routes and Route , encompass all the Route inside Routes 
+
+For every Route, mention the path & the element i.e the component to render 
+
+import {Routes,Route} from 'react-router-dom@6'
+
+inside function:
+<Routes>
+<Route path='/' element={<Component1 />}>               // the '/' is the localhost:3000 
+<Route path='/Component2' element={<Component2 />}>
+<Route path='/Component3' element={<Component3 />}>
+</Routes>
+
+5. Link component
+to create a link to another page. 
+<Link to=<path as configured in routes><name of the page></Link>
+
+6. Navigating Programmatically
+we can do this with help of useNavigate hook from 'react-router-dom'. import the hook and do the following
+
+const nav=useNavigate()
+
+Then in onClick of a button, onClick={()=> nav(path)}
+
+if path is given as -1 then it will navigate to previous page
+
+the hook takes an optional second argument as object. one property is replace:true which replaces the history. 
+
+7. No match route 
+<Route path="*" element=<Component-nf /> />
+ // the * is basically used to match for not found routes 
+
+8. nesting routes 
+only adds the content, doesnt replace 
+
+9. index routes
+ <Route index element={<component />} />
+
+10. dynamic routes
+ if react doesn't find any specific route to the url, only then it goes for the
+ one with dynamic
+
+<Route path='user/:userId' element={<Component />}/>
+
+11. url params 
+import { useParams } from 'react-router-dom'
+inside the component of that page -
+const params=useParams()
+
+this variable will now contain the key value pairs
+from the dynamic url 
+
+12. Search params - query in the url itself
+import { useSearchParams } from 'react-router-dom'
+export const Users= () => {
+const [SearchParams, setsearchParams]= usesearchParams ()
+const showActiveUsers = searchParams.get(" filter")==='active'
+return
+<div>
+    <h2>User 1</h2>
+    <h2>User 2</h2>
+    <h2>User 3</h2>
+    <Outlet />
+    <div>
+        <button onclick={()=> setsearchParams ({ filter: active })}>
+            Active Users
+        </button>
+        <button onclick={() => setsearchParams (1)}>Reset Filter</ button>
+    </div>
+    {showActiveUsers?(<h2>Showing active users</h2>):(<h2>Showing all users</h2>)}
+</div>
+
+13. 
+
+14. lazy loading
+
+const About=React.lazy(()=>import(path to component))
+
+when using this component, wrap it in suspense component of react 
+this fallback is a prop that is sent to show until our component is loaded 
+<React.Suspense fallback='Loading..'>
+    <LazyComponent />
+<React.Suspense />
+
+this reduces the load time initially
