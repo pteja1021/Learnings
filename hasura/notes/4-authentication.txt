@@ -1,0 +1,11 @@
+Hasura is designed in a way so that it doesnt have to deal with Authentication directly itself
+
+It can be made to consume token from an external identity provider - this is where auth0 is coming in- it is an identity provider 
+
+Users are made to login through any client provider like firebase or auth0
+After loggin in, the payload that is further sent is modified. We add jwt hasura claims which has mainly 3 extra fields
+1. x-hasura-user-id
+2. x-hasura-user-role 
+3. x-hasura-allowed-rules 
+
+The entire payload is encoded into a jwt token and then sent to next handler

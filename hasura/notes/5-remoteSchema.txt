@@ -1,0 +1,7 @@
+for remote schemas we create a whole new apollo server which has custom resolvers to queries 
+This apollo server is deployed to any public DNS 
+
+The same URL is used in remote schemas
+
+Now if we query on graphql api, the same query to which we have written resolver will work 
+Hasura will merge the custom graph ql schema with already existing auto generated APIs over postgres

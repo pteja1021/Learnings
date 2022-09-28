@@ -1,0 +1,20 @@
+Hasura implements the backend logic for graphql queries automatically
+Hasura combines the ORM (prisma previously), App server(node server), API Gateway
+
+Functionalities of Hasura as ORM :
+1. N+1 query compilation
+2. Connection Pooling
+3. Failover / HA database connections
+
+Functionalities of Hasura as App server :
+1. Authorization
+2. Caching 
+3. Business logic sent to event handlers
+
+Functionalities of Hasura as API Gateway
+1. Load balancing 
+2. Security
+3. Rate Limiting
+
+Authorization -- verifying access to resources 
+Authentication -- verifying who a user is 

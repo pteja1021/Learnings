@@ -1,0 +1,35 @@
+When schema is subjected to changes, the changes can be pulled from a remote instance to a local instance
+These are called migrations and are generated as sql files that contain raw sql to make those changes 
+This can be done via hasura CLI 
+
+Metadata is hasura specific config that doesnt has relation with database but responsible for graphql api. Things like permissions, 
+event triggers etc 
+We can configure hasura to generate its metadata 
+
+commands :
+1. npx hasura init - to initialise a server cli project - creates a hasura directory - contains metadatata , migrations , config.yaml, seeds
+
+This config.yaml file contains the info where it can find the hasura instance that we are working against
+we need to put in the admin_secret : 
+
+INITIAL MIGRATIONS 
+2.npx hasura migrate create <name> --from-server --database-name <database-name> 
+the database-name is name of connection 
+
+after initialisation, mark the migration as completed 
+npx hasura migrate apply --version "<version from previous command>"
+
+npx hasura console -- this runs on local instance . When we make changes in this schema on 
+the api exposed after running the command ,the changes made are written as migrations on our disk in the migrations folder
+It has 2 files 
+the up.sql file is used to replicate our changes to the remote instance 
+the down.sql file can be used to undo the changes 
+
+Changes made to other than schema like updating the permissions etc, they are added to metadata.
+
+To apply the changes from source control- npx hasura migrate apply - applies the migrations to our local instance 
+similarly npx hasura metadata apply
+
+APPLYING THE DOWN MIGRATION: 
+npx hasura migrate apply --down <the number of migrations>
+npx hasura migrate apply --version <version> --type down 

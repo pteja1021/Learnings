@@ -1,0 +1,11 @@
+these work similar to event triggers 
+
+Actions are custom queries or mutations that are resolved via HTTP handlers to which a POST request is sent. 
+Actions can be used to carry out complex data validations, data enrichment from external sources 
+or execute just about any custom business logic.
+
+However actions are defined to add a new query/mutation- similar to a function. They are invoked only when called.
+Syntax wise - we are required to return a new struct which can be returned. We are not allowed to return a primary type 
+directly while writing an action 
+
+Events are run in response to a particular trigger like an insert/update/delete on columns in a table of database 

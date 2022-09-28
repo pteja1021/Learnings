@@ -1,0 +1,8 @@
+events act like triggers
+we are supposed to give an endpoint to which hasura makes a POST request
+
+We can configure when this endpoint is supposed to be hit- maybe like an insert or update or delete on some table in database
+We can write our custom business logic there
+
+Hence we need to write a separate REST API
+The variables and related info can be accessed completely using the req object inside the node server
