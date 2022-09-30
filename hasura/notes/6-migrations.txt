@@ -33,3 +33,6 @@ similarly npx hasura metadata apply
 APPLYING THE DOWN MIGRATION: 
 npx hasura migrate apply --down <the number of migrations>
 npx hasura migrate apply --version <version> --type down 
+
+npx hasura metadata export - will pull all actions, permissions into the current directory after comparing with endpoint .
+If console is up, metadata is automatically pulled 
