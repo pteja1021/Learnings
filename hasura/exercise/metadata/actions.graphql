@@ -1,0 +1,14 @@
+type Query {
+  getDetails: details
+}
+
+type Query {
+  user: details
+}
+
+type details {
+  name: String!
+  id: Int!
+  email: String!
+}
+

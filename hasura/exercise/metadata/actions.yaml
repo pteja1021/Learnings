@@ -1,6 +1,15 @@
-actions: []
+actions:
+  - name: getDetails
+    definition:
+      kind: ""
+      handler: https://enigmatic-gorge-91072.herokuapp.com/userDetails
+  - name: user
+    definition:
+      kind: ""
+      handler: https://enigmatic-gorge-91072.herokuapp.com/userDetails
 custom_types:
   enums: []
   input_objects: []
-  objects: []
+  objects:
+    - name: details
   scalars: []
