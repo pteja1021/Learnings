@@ -1,0 +1,15 @@
+the defer keyword is used to not execute that particular line of code . It is deferred until the end of that function
+Just before that function returns, all the defer statements are run. The defer uses a Stack like structure to store the statements to run 
+Hence the statements are run in LIFO order 
+
+example :
+func main(){
+    defer fmt.Println("first")
+    defer fmt.Println("middle")
+    defer fmt.Println("end")
+}
+
+any variables that defer statement is using will be preserved with the value at that time. Any changes to variable after the 
+defer statement will not be reflected
+
+output : end middle first

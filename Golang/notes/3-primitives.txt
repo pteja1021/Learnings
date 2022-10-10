@@ -1,0 +1,19 @@
+Boolean - type is "bool". value is true, false. Default is false. 
+
+Numeric : Default is 0
+1. Integer family 
+int , int8, int16, int32, int64 - all these are signed 
+uint, uint8, uint16, uint32 - all these are unsigned
+
+2. Float family 
+float32, float64 
+We are not allowed to do operations between two different int  
+
+3. complex 
+complex64, complex28 
+var n complex32= 1+2i
+real(n) gives the real part 
+imag(n) gives the imaginary part 
+
+String 
+

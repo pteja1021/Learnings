@@ -1,0 +1,17 @@
+creation : can hold only one type of element
+1D : <var_name> := [3]<type>{element1, element2, element3} or grades := [...]int{1,2,3,4,5,5,6,7}
+The [...] means we ask it to create an array to hold all the elements that we pass - sets length automatically
+2D : <var_name> := [5][5]int 
+ex : names := [2]string{"grey","black"}
+
+reading : names[0]
+
+methods :
+len(names) --> returns the length of array
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ARRAYS ARE PASSED BY VALUE - NOT BY REFERENCE 
+
+assume there are two arrays a,b 
+b=a --> pass by value 
+b=&a --> pass by reference 

@@ -1,0 +1,24 @@
+-Golang is compiled.
+-Strong(type of variable cant change over time) and statically typed(vars have to be defined before compile time) 
+-Golang just compiles the entire code and runtime is baked into the final product unlike java which requires a JVM to interpret the
+ intermediate binary.
+-Fast compile times 
+-automatic garbage collection
+-built in concurrency
+-compiles to standalone libraries
+
+Executables are different for each OS.
+
+Object Oriented ? What you see on the screen is the code.
+
+Note : there is no try catch. 
+Lexer does a lot of work.
+
+Before running any go file, first run go mod init <name for module> in the terminal, this creates a go.mod file containing the module.
+
+The "main" keyword is reserved to let go know that particular file is the starting point for execution
+
+environment variables : go env GOPATH
+
+Running a GO file :
+1. go run <filename.go> -- runs the code directly without creating any executables on your computer in between

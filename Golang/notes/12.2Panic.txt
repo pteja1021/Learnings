@@ -1,0 +1,7 @@
+Panic is like the exception in other programming langs
+
+syntax :
+panic("message to denote the error")
+
+any defer statements before panic statements will execute.
+Flow : func open, normal statements, defer, panic, return 

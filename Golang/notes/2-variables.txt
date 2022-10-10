@@ -1,0 +1,15 @@
+Declaration :
+Three ways
+
+1.var a int
+a=23
+
+2. var a int =42
+
+3. a :=42 (not allowed at package level)
+
+We cant redeclare a variable but can shadow them 
+All variables must be used , else it throws error at compile time itself
+
+Use strconv package to cast "int" to "string"
+No implicit conversion in GO 

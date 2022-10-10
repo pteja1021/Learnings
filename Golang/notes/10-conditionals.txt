@@ -1,0 +1,31 @@
+func main(){
+    if <condition>{
+        // even though you have one line only, brackets are necessary
+    }
+    if initializer; condition {
+        // initializer can be something like pop, ok := map[key]
+
+    }
+    if 30==50 {
+        fmt.Println("lalalalalala)
+    }
+}
+
+if, else if, else 
+
+or : || 
+and : &&
+not : !
+
+
+switch expression {
+    case a,c,d :
+        body
+    case b,e,f :
+        body
+    default : 
+        body
+} // the test cases have to be unique 
+// no need of mentioning break 
+
+we can also do initializer syntax with switch case as well 

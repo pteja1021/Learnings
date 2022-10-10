@@ -1,0 +1,22 @@
+Slice are a projection of an array 
+Declaration :
+
+a := []int{1,2,3,4,5,6,7,8}
+len(a) --> gives 3
+cap(a) --> gives capacity of a i.e the limit which it can hold 
+
+By default slices are passed by references 
+
+b:= a[:]
+c:= a[3:]
+d:= a[:4]
+e:= a[3:6]
+
+All the above are passed by reference 
+
+we can also use 'make' function to create slices 
+We can add and remove elements to slices and arrays . However if we try to increase capacity of array beyond capacity,
+the array gets copied into whole new array with new capacity. This can be costly if we are working with large arrays.
+
+syntax : make([]int, length, capacity) -- the length is the current length , capacity is the actual number of elements it can hold
+

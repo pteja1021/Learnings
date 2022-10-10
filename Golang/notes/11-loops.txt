@@ -1,0 +1,16 @@
+for i:=0;i<5;i++ {
+
+}
+other flow control keywords : break , continue 
+
+iterating over arrays and slices:
+for key, value := range array_name {
+    // key is the index , value is the value at arra_name[key]
+}
+
+can be similarly done for maps 
+for key,value := map_name {
+
+}
+
+go can ignore unused vars but they have to be named as _ 

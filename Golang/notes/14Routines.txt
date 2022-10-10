@@ -1,0 +1,15 @@
+Adding the go keyword before function call will make it a go routine
+
+It will spin off a "green" thread which will handle this function call 
+
+Inside Go runtime, there is a scheduler which maps these green threads to actual OS level threads instead 
+of directly handling the function call directly to OS level thread which are usually very heavy
+
+Essentially the stack space consumed by routines is significantly lesser than what other languages consume.
+
+WaitGroups (inside sync package) - it is designed to synchronise multiple go routines
+Add - increments the no. of threads to wait for
+Done - says that particular thread has completed its execution
+wait - to exit the application
+
+Mutex - to lock,unlock the context - mutual exclusion

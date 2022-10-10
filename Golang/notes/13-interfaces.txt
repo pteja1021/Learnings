@@ -1,0 +1,3 @@
+set of related object or types 
+example - circle and rectangle can be defined as two separate structs. However properties like perimiter, area are still defined on them
+The both props have different implementation but they are still defined. Hence interfaces can help us abstract such things 

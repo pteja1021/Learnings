@@ -1,0 +1,6 @@
+the keyword "const" 
+syntax : 
+const a int = 5;
+we can only assign primitive datatypes to the const variables ,  this assignment has to be done during compile time itself 
+
+A "const" declared in package level can be overwritten on its type and value inside the main since it only shadows the outer variable 

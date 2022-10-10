@@ -1,0 +1,35 @@
+They provide the notion of classes. Inheritance is not supported but can use composition viaq embedding
+
+type Animal struct {
+    Name string 
+    Origin string 
+}
+
+type Bird struct {
+    Animal // this is called as embedding Animal inside Bird - composition (bird has animal)
+    FlySpeed int 
+}
+
+func main(){
+    b := Bird{}
+    b.Name = "emu"
+    b.Origin = "australia"
+    b.FlySpeed =20 
+}
+or
+func main (){
+    b := Bird {
+        Animal : Animal{Name : "emu",Origin : "australia"}
+        FlySpeed : 28
+    }
+}
+
+To define methods on structs 
+type greeter struct {
+    greeting string
+    name string 
+}
+
+func (g greeter) greet(){ // the g greeter provides the context and thus this is treated as a method . g is passed by value 
+    fmt.Println(g.greeting,g.name )
+}
