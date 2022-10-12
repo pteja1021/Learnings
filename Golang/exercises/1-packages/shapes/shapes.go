@@ -20,6 +20,9 @@ type Sphere struct {
 
 type OfStructure interface {
 	Volume() float64
+}
+
+type Stringer interface {
 	String() string
 }
 
