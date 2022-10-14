@@ -1,0 +1,13 @@
+1. maps & slices are passed by reference by default
+
+2. to upgrade a package - go get <package name>@latest or go get <package name>@version
+This will upgrade the package inside go.mod file as well- the upgrade will be successfull only if major versions in semantic versioning matches
+
+go list -m all : lists all the packages
+go list -m versions <package name> : lists all the available versions for that package
+go mod tidy : removes unused dependency
+
+3. go.mod contains all the modules needed by your project to run, go.sum files maintains encrypted hashes to content of specific module versions. go commnad will use this go.sum to ensure any future downloads of these modules retrieve the same bits as first download so that proj doesnt break
+
+
+
