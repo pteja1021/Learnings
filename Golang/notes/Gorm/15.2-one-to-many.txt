@@ -1,0 +1,15 @@
+use []referencing_table_name
+There is only one way to mention the relation 
+
+type Calendar struct {
+    gorm.Model 
+    Name 
+    appointments []Appointment
+}
+
+type Appointment struct {
+    gorm.Model
+    subject string 
+    Descritpion string 
+    CalendarID uint 
+}

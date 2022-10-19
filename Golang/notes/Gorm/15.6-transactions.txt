@@ -1,0 +1,13 @@
+to ensure atomicity , changes to datbase are performed as transactions 
+
+to do so, first create a  transaction object 
+
+tx := db.Begin()
+
+Now to make any change to datbase, perform them via this tx object and commit them 
+
+if err = tx.Create(&u).Error ; err!=nil {
+    tx.Rollback() // this will rollback in case the transaction fails or an error pops up
+}
+
+tx.Commit()

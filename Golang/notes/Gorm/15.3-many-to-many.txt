@@ -1,0 +1,16 @@
+we have to create an intermediate join table
+for this we can use a gorm tag 
+
+ex :
+
+type User struct {
+    gorm.Model 
+    username string 
+}
+
+type Appointment struct {
+    gorm.Model
+    subject string
+    description string 
+    Attendees []User `gorm:"many2many:appointment_user"`
+}

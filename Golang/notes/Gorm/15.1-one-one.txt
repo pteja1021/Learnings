@@ -1,0 +1,39 @@
+1. one-one
+mention 
+
+relation_name referencing_table
+
+in both struct declaration
+
+ex:
+
+type User struct {
+    gorm.Model 
+    username string 
+    Calendar Calendar
+}
+
+type Calendar struct {
+    gorm.Model
+    Name string 
+    UserID uint // this is the field of User. The prefix "User" is what makes gorm recognize that this is a User struct's field 
+}
+
+adding a foreign key : db.Model(&Calendar{}).AddForeignKey(src,destination, on delete,on update)
+the src is the field of the calendar table , destination is the field which calendar is referencing to
+on delete - the operation we want to do- feasible values are "CASCADE"
+similarly on update 
+
+OR 
+
+type User struct {
+    gorm.Model 
+    username string 
+    Calendar Calendar
+    CalendarID uint 
+}
+
+type Calendar struct {
+    gorm.Model
+    Name string 
+}

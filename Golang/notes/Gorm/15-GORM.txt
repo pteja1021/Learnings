@@ -1,0 +1,32 @@
+Gorm can be used to perform CRUD operations on RDB
+Gorm can be used for schema management
+-Also can be used to perform transactions with ACID properties
+-supports migrations i.e adding new props to existing DB without breaking 
+-supports event hooks
+-supports chainable api
+-supports logging on database to read logs
+
+to create tables - pass structs. The fields pascal casing is converted into underscores, table name will convert into plural(ex : user to users )
+, id field will be set as PK by default
+
+by default , 
+table names will be pluralised - can be avoided using db.SingularTable(true)
+if any field is mentioned as Id - it will be taken as the primary key- postgres will give it serial type
+strings are assigned varchar 255 by default 
+
+TableName() method can be used to ovverride the default name for table being given by gorm 
+
+sql tags:
+to change type - during declaration mention `sql:"type:VARCHAR(15)"`
+setting a field of type transient (to not pay attention): `sql:"-"`
+setting a field as unique constraint : `sql:"unique"`
+setting a field as non-null : `sql:"not null"`
+assigning a default value : `sql:"DEFAULT:'Smith'"`
+
+gorm tags :
+setting autoincrement for a particular field : `gorm:"AUTO_INCREMENT"`
+setting a field as primary key : `gorm:"primary_key"`
+setting a field with different name: `gorm:"column:newName"`
+
+We can add additional constraints using a semicolon
+ex: `sql:"size:100;unique;not null;"`

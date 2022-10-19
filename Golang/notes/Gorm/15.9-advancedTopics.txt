@@ -1,0 +1,52 @@
+--> Callbacks 
+Any error in callbacks chain aborts the transaction
+Syntax for most callbacks 
+func (e *entity) BeforeSave() error {
+    ...
+}
+We can return an error if some data validation is not being satisfied
+--Callbacks Create cycle: 
+BeforeSave
+BeforeCreate 
+    // Save before associations
+    // save self 
+    // save after associations
+AfterCreate 
+AfterSave
+
+--Callbacks Update cycle
+BeforeSave
+BeforeUpdate 
+    // save before associations
+    // save self
+    // save after associations
+AfterUpdate
+AfterSave 
+
+--Callbacks Delete cycle 
+BeforeDelete
+    //Delete Self
+AfterDelete  
+
+Implement the above methods according to need-if any of the methods throw an error, then the whole transaction will be aborted
+even if any child fails to be created then the whole transaction will be aborted 
+
+-->Scopes 
+define a method that takes in gorm.db object and return gorm.db object
+use db.Scopes(method_name)-- this will scope the operations to just the db
+
+-->Logger
+we can use .Debug() to printout the sql for each operation on db 
+we can also use db.LogMode(true) once-- this will printout the sql 
+we can also use db.SetLogger(logger interface)- this logger interface is predefined. We can also give in our custom logger 
+
+ex:
+type myLogger struct{}
+
+func (ml myLogger) Print(vals ...interface{}){
+    // do some prints
+    // lopp over vals 
+}
+
+db.LogMode(true)
+db.SetLogger(new(myLogger))

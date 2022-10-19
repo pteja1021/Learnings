@@ -1,0 +1,3 @@
+db.Model(table_name).Where("field_name=?",value).Update(field, new value )
+
+.Update("salary",gorm.Expr("salary+5000")) // set salary = salary + 5000

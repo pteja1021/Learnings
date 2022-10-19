@@ -1,0 +1,66 @@
+get the record or insert that if not found : db.FirstOrCreate(&u,&User{username:"adent"}) - 
+--> finds first record with username adent, populates it into u
+if not found, it will insert the username:adent record 
+
+--> select * from users
+users:=[]User{}
+db.Find(&users)
+
+The Find method however wont populate the child objects (relational fields)
+
+--> select * from users where <conditions> 
+db.Find(&users,&User{conditions})
+
+--> specifying "where" conditions 
+db.Where("username = ?",value).Find(&users)
+db.Where(&User{username:"bla"}).Find(&users)
+db.Where("username = ? and id=?","bla",1)
+
+--mentioning multiple conditions   
+db.Where("username = ?","bla").Or(condition2).Find(&users)
+
+--> to also get the child objects, use preload 
+db.Preload("Calendar").Find(&users)
+This will preload the Calendar object inside users 
+db.Preload("Calendar.Appointments").Find(&users) // this goes a level deeper and also fetches out the Appointments that Calendar is linked to
+
+--> Limiting the number of rows and order by and offset
+db.Limit(no_of_rows).Offset(no_of_rows).Order("table_field_name desc/asc").Find(&users)
+
+--> select only speicific columns
+db.Select([]string{"first_name","last_name"}).Find(&users)
+
+usernames := []string{}
+db.Model(&User{}).Pluck("username",&usernames) // plucks the "username" column from User table and inserts into usernames variable
+
+define a struct with required fields and create a variable that will have an empty array of that struct 
+we can use Scan method to populate that array instead of .Find
+db.Select([]string{field1,field2}).Scan(&array)
+
+--> giving default values if a record is not found 
+we use "Attributes" here 
+
+db.Where("username=?","nla").Attrs(&User{FirstName:"funk").FirstOrInit(&u)
+
+--> overriding the field values - even if record is found or not 
+we use assign keyword here 
+
+db.Where("username=?","bla").Assign(&User{FirstName:"hoot"}).FirstOrInit(&u)
+
+if username bla is found, that record is returned but first_name will be hoot. if record not found, then new record with firstname hoot is sent 
+however the changes are only seen at application level. database is not changed with those entries
+
+--> Joins
+db.Model(&User{}).Join("inner join calendars on calendars.user_id= users.user_id").Select("").Scan()
+
+-->calling the Rows() instead of scan or find will return the actual sql rows 
+this returns an iterable 
+for rows.Next(){
+    rows.Scan()
+}
+
+--> Aggregation
+db.Model(&User{}).Select("field_name",sum(length)).Group("calendar_id").Having("calendar_id=?",1)
+
+-->using raw sql
+db.Exec("<send in the query directly in sql here>").Find(&users)

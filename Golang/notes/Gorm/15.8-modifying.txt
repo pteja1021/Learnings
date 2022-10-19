@@ -1,0 +1,25 @@
+These modifications are called as migrations 
+
+--> adding fields
+add the field to struct
+use AutoMigrate method instead of Create 
+This will automatically compare the fields and add new fields if any are found 
+
+--> adding indexes
+add the index as sql tag in your struct 
+`sql:"index:name_of_the_index"`
+call AutoMigrate method again,gorm will compare and add the index 
+
+--> removing entities
+use DropTableIfExists("name_of_the_table_in_db") for the entity you want to remove 
+use AutoMigrate for other tables referencing it
+
+--> changing the data field type 
+modify the field's type in your struct , however AutoMigrate wont work since gorm wont work with non-datasafe migration 
+use ModifyColumn method on db - was not properly coded by developers, use exec with raw sql if it doesnt work 
+
+--> dropping the fields 
+AutoMigrate wont work since it is not a data safe operation 
+remove the fields from struct 
+use DropColumn("name_of_the_field_in_db") on db 
+

@@ -1,0 +1,8 @@
+3 ways 
+
+db.Delete(&u) - u is a User Object
+
+gorm.Model gives deleted at field. this is called as soft delete. it wont delete the entry but just give the timestamp to deleted at field 
+
+for batch deletes:
+db.Where("salary < ?",500).Delete(&User{})
