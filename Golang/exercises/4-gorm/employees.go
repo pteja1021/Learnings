@@ -14,6 +14,7 @@ type Employee struct {
 	ManagerID    *uint
 	Manager      *Employee	
 	DepartmentID uint
+	Department	Department	
 }
 
 type Department struct {
@@ -36,7 +37,6 @@ func main() {
 		panic(err.Error())
 	}
 	defer db.Close()
-	fmt.Println("connection established")
 
 	//Creating Tables
 	db.DropTableIfExists(&Employee{}, &Department{})
@@ -59,20 +59,32 @@ func main() {
 		Role: "manager",
 		DepartmentID: department.ID,
 	}
-	
+	db.Save(&manager)
+
 	newEmployee := Employee{
 		Name:         "naga",
 		Role:         "developer",
 		Manager:      &manager,
 		DepartmentID: department.ID,
+	}	
+	db.Save(&newEmployee)
+
+	// Finding testing dept and inserting an employee in it with manager as vamshee
+	testingDepartment := Department{}
+	db.Where(&Department{Name: "Testing"}).Find(&testingDepartment)
+	db.Save(&Employee{Name: "Smith",Role: "tester", Manager: &manager, Department: testingDepartment})
+	
+
+	allEmployees := []Employee{}
+	db.Preload("Manager").Preload("Department").Find(&allEmployees)
+	for index := range allEmployees{
+		if allEmployees[index].Manager==nil{
+			fmt.Println(allEmployees[index].Name,"No manager",allEmployees[index].Department.Name)
+		} else {
+			fmt.Println(allEmployees[index].Name,allEmployees[index].Manager.Name,allEmployees[index].Department.Name)
+		}
 	}
-	
-	db.Debug().Save(&manager)
-	db.Debug().Save(&newEmployee)
-	
-	new_department := Department{}
-	db.Preload("Employees").Where(&department).Find(&new_department)
-	fmt.Println(new_department.Employees)
+	fmt.Println(allEmployees[2].Name,allEmployees[2].Manager.Name,allEmployees[2].Department.Name)
 }
 
 
@@ -84,4 +96,9 @@ func DepartmentData() []Department {
 		{Name: "Deployment", Location: "Chennai"},
 	}
 	return departments
+}
+
+func (e *Employee) AfterCreate() error{
+	fmt.Println("Mail sent to ",e.Name," from after create")
+	return nil
 }
