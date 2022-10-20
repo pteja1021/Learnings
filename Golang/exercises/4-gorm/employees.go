@@ -84,9 +84,7 @@ func main() {
 			fmt.Println(allEmployees[index].Name,allEmployees[index].Manager.Name,allEmployees[index].Department.Name)
 		}
 	}
-	fmt.Println(allEmployees[2].Name,allEmployees[2].Manager.Name,allEmployees[2].Department.Name)
 }
-
 
 func DepartmentData() []Department {
 	departments := []Department{
