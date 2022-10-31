@@ -77,6 +77,8 @@ func InitiateDB(){
 
 	allEmployees := []Employee{}
 	db.Preload("Manager").Preload("Department").Find(&allEmployees)
+
+	// Printing all employees
 	for index := range allEmployees{
 		if allEmployees[index].Manager==nil{
 			fmt.Println(allEmployees[index].Name,"No manager",allEmployees[index].Department.Name)
