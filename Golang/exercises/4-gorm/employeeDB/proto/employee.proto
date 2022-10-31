@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "example.com/employeeDB";
+
+package employeeDB;
+
+service EmployeeDatabaseCrud {
+    rpc AddEmployee(NewEmployee) returns (Employee) {} //CREATING AN EMPLOYEE
+    rpc GetEmployees(EmptyEmployeeRequest) returns (AllEmployees){} //READ OPERATION
+    rpc UpdateRoleOfEmployee(Employee) returns (Employee) {} //Update employee
+    rpc DeleteEmployee(Employee) returns (EmptyEmployeeResponse){} //deletes employee
+}
+
+message Employee{
+    int64 id=1;
+    string name=2 ;
+    string role=3;
+    int64 manager_id=4;
+    int64 department_id=5;
+}
+
+message NewEmployee {
+    string name =1 ;
+    string role=2;
+    int64 manager_id =3;
+    int64 department_id =4;
+}
+
+message EmptyEmployeeRequest{
+}
+
+message EmptyEmployeeResponse{
+}
+
+message AllEmployees {
+    repeated Employee employees=1;
+}

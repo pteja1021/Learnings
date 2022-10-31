@@ -1,4 +1,4 @@
-package main
+package models
 
 import (
 	"fmt"
@@ -24,7 +24,7 @@ type Department struct {
 	Employees []Employee
 }
 
-func main() {
+func InitiateDB(){
 
 	//reading command line flags 
 	dbName := flag.String("db","gorm","a string")
@@ -94,9 +94,4 @@ func DepartmentData() []Department {
 		{Name: "Deployment", Location: "Chennai"},
 	}
 	return departments
-}
-
-func (e *Employee) AfterCreate() error{
-	fmt.Println("Mail sent to ",e.Name," from after create")
-	return nil
 }
